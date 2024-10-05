@@ -37,6 +37,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/third-party.css') }}">
     {{--    <link href="{{ asset('assets/css/front-custom.css') }}" rel="stylesheet" type="text/css">--}}
     <link href="{{ asset('assets/css/front/front-custom.css') }}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{ asset('assets/css/new_home/index.css') }}">
 
     <script src="{{ mix('assets/js/front-third-party.js') }}"></script>
     <script src="{{ asset('messages.js') }}"></script>

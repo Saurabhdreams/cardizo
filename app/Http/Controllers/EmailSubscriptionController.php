@@ -25,22 +25,8 @@ class EmailSubscriptionController extends AppBaseController
      */
     public function store(CreateEmailSubscriptionRequest $request)
     {
-        try {
-            // Run your backend validation, this will prevent invalid data from being inserted
-            EmailSubscription::create($request->all());
-
-            // Return success response in JSON
-            return response()->json([
-                'success' => true,
-                'message' => __('messages.placeholder.subscribed_successfully')
-            ]);
-        } catch (\Exception $e) {
-            // Return error response in JSON if something goes wrong
-            return response()->json([
-                'success' => false,
-                'message' => 'An error occurred while subscribing.'
-            ], 400);
-        }
+        EmailSubscription::create($request->all());
+        return $this->sendSuccess(__('messages.placeholder.subscribed_successfully'));
     }
 
     /**
