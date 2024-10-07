@@ -22,9 +22,9 @@
                         <a href="{{ route('home') }}" class="image">
                             <img alt="Logo" src="{{ getLogoUrl() }}" class="img-fluid logo-fix-size">
                         </a>
-                       
+
                     </div>
-                 
+
                     <div class="bg-white width-540 px-5 py-10 mx-auto">
 						   <div class="width-540">
                         @include('layouts.errors')

@@ -48,6 +48,26 @@ class RegisteredUserController extends Controller
      */
     public function store(CreateRegisterRequest $request): RedirectResponse
     {
+        $request->validate([
+            'first_name' => ['required', 'string', 'max:10', 'regex:/^[a-zA-Z]+$/'],
+            'last_name' => ['required', 'string', 'max:10', 'regex:/^[a-zA-Z]+$/'],
+            'email' => [
+                'required',
+                'email',
+                'max:25',
+                'unique:email_subscriptions,email',
+                'regex:/^[^!#\$%\^&\*\(\)]+$/',
+                'regex:/^(?!.*\.\w+\.\w+$).+$/',
+                'regex:/^[^@]+@(?!\d)[A-Za-z0-9._%+-]+\.[A-Za-z]{2,}$/',
+            ],[
+                'first_name.required' => 'First name is required.',
+                'last_name.required' => 'Last name is required.',
+                'email.required' => 'Email is required.',
+                'email.email' => 'Please enter a valid email address.',
+                'email.unique' => 'This email is already in use.',
+            ]
+        ]);
+
         $referral_code = $request->input('referral-code');
         $referral_user = '';
         if ($referral_code) {

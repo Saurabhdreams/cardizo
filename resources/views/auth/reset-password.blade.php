@@ -44,10 +44,11 @@
 
                     <!-- Password -->
                     <div class="mb-10">
-                        <label class="form-label" for="password">{{__('messages.user.password')}}</label>
+                        <label class="form-label" for="password">{{__('messages.user.new_password')}}</label>
                         <input id="password" class="form-control"
                                type="password"
                                name="password"
+                               maxlength="12"
                                required  autocomplete="off" />
                         <div class="invalid-feedback">
                             {{ $errors->first('password') }}
@@ -58,7 +59,7 @@
                     <div class="mb-5">
                         <label class="form-label" for="password_confirmation">{{__('messages.user.confirm_password')}}</label>
                         <input class="form-control" type="password"
-                               id="password_confirmation" name="password_confirmation" autocomplete="off"/>
+                               id="password_confirmation" name="password_confirmation" maxlength="12" autocomplete="off"/>
                         <div class="invalid-feedback">
                             {{ $errors->first('password_confirmation') }}
                         </div>

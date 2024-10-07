@@ -78,7 +78,7 @@
                             <ul class="navbar-nav align-items-lg-center">
                                 <li class="nav-item">
                                     <a class="nav-link active nav-link-white" aria-current="page"
-                                        href="{{ asset('') . '#frontHomeTab' }}"  data-turbo="false">{{ __('auth.home') }}</a>
+                                        href="{{ asset('') . '#HomeTab' }}"  data-turbo="false">{{ __('auth.home') }}</a>
                                 </li>
                                 {{-- <li class="nav-item">
                                     <a class="nav-link nav-link-white"
@@ -86,7 +86,7 @@
                                 </li> --}}
                                 <li class="nav-item">
                                     <a class="nav-link nav-link-white"
-                                        href="{{ asset('') . '#frontAboutTabUsTab' }}"  data-turbo="false">{{ __('auth.about') }}</a>
+                                        href="{{ asset('') . '#AboutTab' }}"  data-turbo="false">{{ __('auth.about') }}</a>
                                 </li>
                                 <li class="nav-item @if($faqs === null) d-none @endif">
                                     <a class="nav-link nav-link-white"
@@ -94,13 +94,13 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link nav-link-white"
-                                        href="{{ asset('') . '#frontPricingTab' }}"  data-turbo="false">{{ __('auth.pricing') }}</a>
+                                        href="{{ asset('') . '#PricingTab' }}"  data-turbo="false">{{ __('auth.pricing') }}</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link nav-link-white"
-                                        href="{{ asset('') . '#frontContactUsTab' }}"  data-turbo="false">{{ __('auth.contact') }} </a>
+                                        href="{{ asset('') . '#ContactTab' }}"  data-turbo="false">{{ __('auth.contact') }} </a>
                                 </li>
-                                <li class="nav-item">
+                                {{-- <li class="nav-item">
                                     <div class="dropdown">
                                         <a class="btn dropdown-toggle nav-link-white" href="#" role="button"
                                             id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"  data-turbo="false">
@@ -133,7 +133,7 @@
                                             @endforeach
                                         </ul>
                                     </div>
-                                </li>
+                                </li> --}}
 
                                 @if (empty(getLogInUser()))
                                     <a class="btn btn-white text-decoration-none fs-18 sign-in-btn d-lg-block d-none d-lg-block d-none"

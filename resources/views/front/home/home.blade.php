@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 
-<section class="hero-section" id="frontHomeTab">
+<section class="hero-section" id="HomeTab">
        <div class="container"> @include('flash::message') </div>
 <div class="bg-img"></div>
         <div class="container">
@@ -65,7 +65,7 @@
     <!-- end features section -->
 
     <!-- start about section -->
-    <section class="about-section overflow-hidden padding-t-100px py-5" id="frontAboutTabUsTab">
+    <section class="about-section overflow-hidden padding-t-100px py-5" id="AboutTab">
         <div class="container">
             <h2 class="heading text-success text-center margin-b-100px pb-5">
                 {{ __('auth.modern_&_powerful_interface') }}
@@ -131,7 +131,7 @@
     <!-- end about section -->
 
     <!-- start pricing section -->
-    <section class="pricing-plan-section pb-100" id="frontPricingTab">
+    <section class="pricing-plan-section pb-100" id="PricingTab">
         <div class="container">
             <h2 class="text-dark text-center mb-60">
                 {{ __("auth.choose_a_plan_that's_right_for_you") }}
@@ -281,7 +281,7 @@
     <!-- start contact section -->
 
       <!-- start contact section -->
-    {{-- <section class="contact-section padding-t-100px padding-b-100px pb-80 pt-80 bg-light" id="frontContactUsTab">
+    {{-- <section class="contact-section padding-t-100px padding-b-100px pb-80 pt-80 bg-light" id="ContactTab">
         <h2 class="heading text-success text-center margin-b-80px mb-5">
             {{ __('messages.contact_us.contact') }}
         </h2>
@@ -326,7 +326,7 @@
                                     <input name="name" id="name" type="text" class="form-control"
                                         placeholder="{{ __('messages.front.enter_your_name') }}*" pattern="[A-Za-z\s]+" title="Please enter only letters" required>
                                 </div>
-                                
+
                             </div>
                             <div class="col-lg-6">
                                 <div class="contact-form__input-block">

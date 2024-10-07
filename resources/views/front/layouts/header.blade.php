@@ -26,7 +26,7 @@
                         <div class="navbar-nav">
                             <li class="nav-item">
                                 <a class="nav-link active px-3 mt-1" aria-current="page" data-turbo="false"
-                                    href="{{ asset('') . '#frontHomeTab' }}">{{ __('auth.home') }}</a>
+                                    href="{{ asset('') . '#HomeTab' }}">{{ __('auth.home') }}</a>
                             </li>
                             {{-- <li class="nav-item px-3">
                                 <a class="nav-link mt-1"
@@ -34,7 +34,7 @@
                             </li> --}}
                             <li class="nav-item px-3">
                                 <a class="nav-link mt-1"
-                                    href="{{ asset('') . '#frontAboutTabUsTab' }}" data-turbo="false">{{ __('auth.about') }}</a>
+                                    href="{{ asset('') . '#AboutTab' }}" data-turbo="false">{{ __('auth.about') }}</a>
                             </li>
                             <li class="nav-item @if($faqs === null) d-none @endif">
                                 <a class="nav-link mt-1"
@@ -42,11 +42,11 @@
                             </li>
                             <li class="nav-item px-3">
                                 <a class="nav-link mt-1"
-                                    href="{{ asset('') . '#frontPricingTab' }}" data-turbo="false">{{ __('auth.pricing') }}</a>
+                                    href="{{ asset('') . '#PricingTab' }}" data-turbo="false">{{ __('auth.pricing') }}</a>
                             </li>
                             <li class="nav-item px-3">
                                 <a class="nav-link mt-1"
-                                    href="{{ asset('') . '#frontContactUsTab' }}" data-turbo="false">{{ __('auth.contact') }}</a>
+                                    href="{{ asset('') . '#ContactTab' }}" data-turbo="false">{{ __('auth.contact') }}</a>
                             </li>
                             {{-- <li class="nav-item px-3 mt-1">
                                 <div class="dropdown">

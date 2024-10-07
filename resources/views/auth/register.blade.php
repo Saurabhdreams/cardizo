@@ -25,19 +25,22 @@
                                     <img alt="Logo" src="{{ getLogoUrl() }}" class="img-fluid logo-fix-size">
                                 </a>
                             </div>
-                        
+
                         </div>
                         <div class="row element mt-5">
                             <div class="col-md-12 width-540 mt-5">
                                 @include('flash::message')
                                 @include('layouts.errors')
                             </div>
+
                             <h1 class="text-center mb-7 fs-2 fw-bold">{{ __('messages.common.create_an_account') }}
                             </h1>
+
                             <form method="POST"
                                 action="{{ request()->input('referral-code') ? route('register') . '?referral-code=' . request()->input('referral-code') : route('register') }}"
                                 id="UserRegisterForm" class="form-horizontal">
                                 @csrf
+
                                 <div class="row">
                                     <div class="col-md-6 mb-4">
                                         <label for="formInputFirstName" class="form-label">
@@ -45,25 +48,40 @@
                                         </label>
                                         <input name="first_name" type="text" class="form-control" id="first_name"
                                             placeholder=" {{ __('messages.user.first_name') }}" aria-describedby="firstName"
-                                            value="{{ old('first_name') }}" required>
+                                            value="{{ old('first_name') }}" >
+                                        <!-- Error message for first name -->
+                                        @error('first_name')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
+
                                     <div class="col-md-6 mb-4">
                                         <label for="last_name" class="form-label">
                                             {{ __('messages.user.last_name') . ':' }}<span class="required"></span>
                                         </label>
                                         <input name="last_name" type="text" class="form-control" id="last_name"
                                             placeholder=" {{ __('messages.user.last_name') }}" aria-describedby="lastName"
-                                            required value="{{ old('last_name') }}">
+                                            value="{{ old('last_name') }}" >
+                                        <!-- Error message for last name -->
+                                        @error('last_name')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
+
                                 <div class="col-md-12 mb-4">
                                     <label for="email" class="form-label">
                                         {{ __('messages.user.email') . ':' }}<span class="required"></span>
                                     </label>
                                     <input name="email" type="email" class="form-control" id="email"
                                         aria-describedby="email" placeholder=" {{ __('messages.user.email') }}"
-                                        value="{{ old('email') }}" required>
+                                        value="{{ old('email') }}" >
+                                    <!-- Error message for email -->
+                                    @error('email')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
+
                                 <div class="col-md-12 mb-4">
                                     <label for="password" class="form-label">
                                         {{ __('messages.user.password') . ':' }}<span class="required"></span>
@@ -71,13 +89,18 @@
                                     <div class="mb-3 position-relative">
                                         <input type="password" name="password" class="form-control" id="password"
                                             placeholder=" {{ __('messages.user.password') }}" aria-describedby="password"
-                                            required aria-label="Password" data-toggle="password">
+                                            aria-label="Password" data-toggle="password">
                                         <span
                                             class="position-absolute d-flex align-items-center top-0 bottom-0 end-0 me-4 input-icon input-password-hide cursor-pointer text-gray-600">
                                             <i class="bi bi-eye-slash-fill"></i>
                                         </span>
+                                        <!-- Error message for password -->
+                                        @error('password')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
+
                                 <div class="col-md-12 mb-4">
                                     <label for="password_confirmation" class="form-label">
                                         {{ __('messages.user.confirm_password') . ':' }}<span class="required"></span>
@@ -85,51 +108,68 @@
                                     <div class="mb-3 position-relative">
                                         <input name="password_confirmation" type="password" class="form-control"
                                             placeholder=" {{ __('messages.user.confirm_password') }}"
-                                            id="password_confirmation" aria-describedby="confirmPassword" required
+                                            id="password_confirmation" aria-describedby="confirmPassword"
                                             aria-label="Password" data-toggle="password">
                                         <span
                                             class="position-absolute d-flex align-items-center top-0 bottom-0 end-0 me-4 input-icon input-password-hide cursor-pointer text-gray-600">
                                             <i class="bi bi-eye-slash-fill"></i>
                                         </span>
+                                        <!-- Error message for password confirmation -->
+                                        @error('password_confirmation')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
-                        <div class="col-md-12 mb-4 element">
-                            <div class="form-check ms-5">
-                                <input type="checkbox" name="term_policy_check" class="form-check-input"
-                                    id="privacyPolicyCheckbox" placeholder>
-                                <label class="form-check-label" for="privacyPolicyCheckbox">
-                                    @lang('messages.by_signing_up_you_agree_to_our')
-                                    <a href="{{ route('terms.conditions') }}" target="_blank"
-                                        class="text-decoration-none link-info fs-6">{!! __('messages.vcard.term_condition') !!}</a>
-                                    &
-                                    <a href="{{ route('privacy.policy') }}" target="_blank"
-                                        class="text-decoration-none link-info fs-6">{{ __('messages.vcard.privacy_policy') }}</a>
-                                </label>
-                            </div>
-                        </div>
 
-                        @if (getSuperAdminSettingValue('captcha_enable'))
-							 <div class="row element">
-                            <div class="col-md-12 mb-sm-7 mb-4">
-                                {!! htmlFormSnippet() !!}
-                            </div>
-                            </div>
-                        @endif
-                        <div class="row element">
-                            <div class="d-grid">
-                                <button type="submit" class="btn  register-btn px-10">{{ __('Register') }}</button>
-                            </div>
+                                <div class="col-md-12 mb-4 element">
+                                    <div class="form-check ms-5">
+                                        <input type="checkbox" name="term_policy_check" class="form-check-input"
+                                            id="privacyPolicyCheckbox" placeholder>
+                                        <label class="form-check-label" for="privacyPolicyCheckbox">
+                                            @lang('messages.by_signing_up_you_agree_to_our')
+                                            <a href="{{ route('terms.conditions') }}" target="_blank"
+                                                class="text-decoration-none link-info fs-6">
+                                                {!! __('messages.vcard.term_condition') !!}
+                                            </a>
+                                            &
+                                            <a href="{{ route('privacy.policy') }}" target="_blank"
+                                                class="text-decoration-none link-info fs-6">
+                                                {{ __('messages.vcard.privacy_policy') }}
+                                            </a>
+                                        </label>
+                                        <!-- Error message for terms and conditions -->
+                                        @error('term_policy_check')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                @if (getSuperAdminSettingValue('captcha_enable'))
+                                    <div class="row element">
+                                        <div class="col-md-12 mb-sm-7 mb-4">
+                                            {!! htmlFormSnippet() !!}
+                                        </div>
+                                    </div>
+                                @endif
+
+                                <div class="row element">
+                                    <div class="d-grid">
+                                        <button type="submit"
+                                            class="btn register-btn px-10">{{ __('Register') }}</button>
+                                    </div>
+                                </div>
+
+                                <div class="align-items-center text-center mt-4">
+                                    <span
+                                        class="text-gray-700 me-2 text-center">{{ __('messages.common.already_have_an_account') . '?' }}</span>
+                                    <a href="{{ route('login') }}" class="link-info fs-6 text-decoration-none">
+                                        {{ __('messages.common.sign_in_here') }}
+                                    </a>
+                                </div>
+                            </form>
+
                         </div>
-                        <div class="align-items-center text-center mt-4">
-                            <span
-                                class="text-gray-700 me-2 text-center">{{ __('messages.common.already_have_an_account') . '?' }}</span>
-                            <a href="{{ route('login') }}" class="link-info fs-6 text-decoration-none">
-                                {{ __('messages.common.sign_in_here') }}
-                            </a>
-                        </div>
-                        </form>
-                    </div>
-                      {{-- <footer>
+                        {{-- <footer>
                     <div class="container-fluid padding-0">
                         <div class="row align-items-center justify-content-center">
                             <div class="col-xl-6 w-100">
@@ -142,8 +182,8 @@
                         </div>
                     </div>
                 </footer> --}}
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-@endsection
+    @endsection

@@ -155,7 +155,7 @@
     <!-- end features section -->
 
     <!-- start modern & powerful-interface section -->
-    <section class="modern-interface-section overflow-hidden pb-100" id="frontAboutTabUsTab">
+    <section class="modern-interface-section overflow-hidden pb-100" id="AboutTab">
         <div class="container">
             <div class="section-heading text-center mb-60">
                 <h2 class="d-inline-block">{{ __('auth.modern_&_powerful_interface') }}</h2>
@@ -228,7 +228,7 @@
     <!-- end modern & powerful-interface section  -->
 
     <!-- start pricing section -->
-    <section class="pricing-plan-section pb-100" id="frontPricingTab">
+    <section class="pricing-plan-section pb-100" id="PricingTab">
         <div class="container">
             <div class="section-heading text-center mb-60">
                 <h2 class="d-inline-block"> {{ __("auth.choose_a_plan_that's_right_for_you") }}</h2>
@@ -386,7 +386,7 @@
     <!-- end testimonial section -->
 
     <!-- start contact section -->
-    <section class="contact-section pt-100 pb-100" id="frontContactUsTab">
+    <section class="contact-section pt-100 pb-100" id="ContactTab">
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-6">
@@ -399,7 +399,7 @@
                                 <i class="fa-solid fa-location-dot icon-purpul"></i>
                             </div>
                             <p class="address-text text-secondary mb-0">
-                                {{ $setting['address'] }}
+                                <a href="">{{ $setting['address'] }}</a>
                             </p>
                         </div>
                         <div class="d-flex align-items-center contact-info__block">

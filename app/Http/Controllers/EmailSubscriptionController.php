@@ -26,14 +26,20 @@ class EmailSubscriptionController extends AppBaseController
     public function store(CreateEmailSubscriptionRequest $request)
     {
         $validatedData = $request->validate([
-            'email' => 'required|email|max:25|unique:email_subscriptions,email',
+            'email' => [
+                'required',
+                'email',
+                'max:25',
+                'unique:email_subscriptions,email',
+                'regex:/^[^!#\$%\^&\*\(\)]+$/',
+                'regex:/^(?!.*\.\w+\.\w+$).+$/',
+                'regex:/^[^@]+@(?!\d)[A-Za-z0-9._%+-]+\.[A-Za-z]{2,}$/',
+            ],
         ]);
 
         EmailSubscription::create($validatedData);
-
-        return response()->json(['success' => true, 'message' => __('messages.placeholder.subscribed_successfully')]);
+        return $this->sendSuccess(__('messages.placeholder.subscribed_successfully'));
     }
-
 
     /**
      * @return mixed

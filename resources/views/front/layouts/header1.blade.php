@@ -1,12 +1,12 @@
 <style>
 .navbar-nav .nav-link:hover {
-    color: #7638f9 !important; 
-    transition: all 0.3s ease; 
+    color: #7638f9 !important;
+    transition: all 0.3s ease;
 }
 </style>
 <!-- start header section -->
     <header class="header">
-        <div class="container" id="frontHomeTab">
+        <div class="container" id="HomeTab">
             <div class="row align-items-center justify-content-between">
                 <div class="col-lg-2 col-md-8 col-sm-7 col-5 order-lg-1 order-0">
                     <a class="navbar-brand p-0" href="{{ env('APP_URL') }}">
@@ -26,7 +26,7 @@
                             <ul class="navbar-nav align-items-lg-center" data-turbo="false">
                                 <li class="nav-item">
                                     <a class="nav-link active" aria-current="page" data-turbo="false"
-                                        href="{{ asset('') . '#frontHomeTab' }}">{{ __('auth.home') }}</a>
+                                        href="{{ asset('') . '#HomeTab' }}">{{ __('auth.home') }}</a>
                                 </li>
                                 {{-- <li class="nav-item">
                                     <a class="nav-link"
@@ -34,7 +34,7 @@
                                 </li> --}}
                                 <li class="nav-item">
                                     <a class="nav-link"
-                                        href="{{ asset('') . '#frontAboutTabUsTab' }}" data-turbo="false">{{ __('auth.about') }}</a>
+                                        href="{{ asset('') . '#AboutTab' }}" data-turbo="false">{{ __('auth.about') }}</a>
                                 </li>
                                 <li class="nav-item @if($faqs === null) d-none @endif">
                                     <a class="nav-link"
@@ -42,11 +42,11 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link"
-                                        href="{{ asset('') . '#frontPricingTab' }}" data-turbo="false">{{ __('auth.pricing') }}</a>
+                                        href="{{ asset('') . '#PricingTab' }}" data-turbo="false">{{ __('auth.pricing') }}</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link"
-                                        href="{{ asset('') . '#frontContactUsTab' }}" data-turbo="false">{{ __('auth.contact') }}</a>
+                                        href="{{ asset('') . '#ContactTab' }}" data-turbo="false">{{ __('auth.contact') }}</a>
                                 </li>
                                 {{-- <li class="nav-item">
                                     <div class="dropdown">

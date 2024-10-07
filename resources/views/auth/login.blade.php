@@ -25,7 +25,7 @@
                                     <img alt="Logo" src="{{ getLogoUrl() }}" class="img-fluid logo-fix-size">
                                 </a>
                             </div>
-                            
+
                         </div>
                         <div class="row element">
                             <div class="col-md-12 width-540 mt-5">
@@ -48,7 +48,7 @@
                                         <label for="password"
                                             class="form-label">{{ __('messages.user.password') . ':' }}<span
                                                 class="required"></span></label>
-                                      
+
                                     </div>
                                     <div class="mb-3 position-relative ">
                                         <input name="password" type="password" class="form-control" id="password" required
@@ -62,10 +62,10 @@
                                 </div>
                                 <div class="mb-sm-7 mb-4 form-check element ms-5 d-flex justify-content-between align-items-center">
                                     <div>
-                                        <input type="checkbox" class="form-check-input" id="remember_me">
+                                        <input type="checkbox" class="form-check-input" id="remember" name="remember">
                                         <label class="form-check-label" for="remember_me">{{ __('messages.common.remember_me') }}</label>
                                     </div>
-                                    
+
                                     @if (Route::has('password.request'))
                                         <a href="{{ route('password.request') }}" class="link-info fs-6 text-decoration-none">
                                             {{ __('messages.common.forgot_your_password') . '?' }}
