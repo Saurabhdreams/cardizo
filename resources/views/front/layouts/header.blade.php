@@ -1,7 +1,7 @@
 <style>
 .navbar-nav .nav-link:hover {
-    color: #7638f9 !important; 
-    transition: all 0.3s ease; 
+    color: #7638f9 !important;
+    transition: all 0.3s ease;
 }
 </style>
 <!-- start header section -->
@@ -36,15 +36,19 @@
                                 <a class="nav-link mt-1"
                                     href="{{ asset('') . '#frontAboutTabUsTab' }}" data-turbo="false">{{ __('auth.about') }}</a>
                             </li>
+                            <li class="nav-item @if($faqs === null) d-none @endif">
+                                <a class="nav-link mt-1"
+                                    href="{{ route('fornt-faq') }}" data-turbo="false">{{ __('messages.faqs.faqs') }}</a>
+                            </li>
                             <li class="nav-item px-3">
                                 <a class="nav-link mt-1"
                                     href="{{ asset('') . '#frontPricingTab' }}" data-turbo="false">{{ __('auth.pricing') }}</a>
                             </li>
-                            {{-- <li class="nav-item px-3">
+                            <li class="nav-item px-3">
                                 <a class="nav-link mt-1"
                                     href="{{ asset('') . '#frontContactUsTab' }}" data-turbo="false">{{ __('auth.contact') }}</a>
-                            </li> --}}
-                            <li class="nav-item px-3 mt-1">
+                            </li>
+                            {{-- <li class="nav-item px-3 mt-1">
                                 <div class="dropdown">
                                     <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                         data-bs-toggle="dropdown" aria-expanded="false">
@@ -75,7 +79,7 @@
                                         @endforeach
                                     </ul>
                                 </div>
-                            </li>
+                            </li> --}}
                             @if (empty(getLogInUser()))
                                 <a class="btn btn-white fs-18 ms-3 d-lg-block d-none" href="{{ route('login') }}"
                                     data-turbo="false">
