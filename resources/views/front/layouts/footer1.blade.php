@@ -57,7 +57,7 @@
                         <p class="text-gray-100 fs-18 mb-40 pb-lg-3 pe-xl-5 me-xl-5">
                             {{ __('messages.Receive_latest_news_update_and_many_other_things_every_week') }}</p>
                     </div>
-                    <form action="{{ route('email.sub') }}" method="post" id="addEmail">
+                    {{-- <form action="{{ route('email.sub') }}" method="post" id="addEmail">
                         @csrf()
                         <div class="email">
                             <input type="email" name="email" id="email" class="form-control"
@@ -111,7 +111,7 @@
                                     'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value
                                 }
                             })
-                            alert("802189")
+
                             .then(response => response.json())
                             .then(data => {
                                 if (data.success) {
@@ -127,7 +127,86 @@
                                 console.log('Error:', error);
                             });
                         });
+                    </script> --}}
+
+                    <form id="addEmail" method="POST">
+                        @csrf
+                        <div class="email">
+                            <input type="email" name="email" id="email" class="form-control"
+                                   placeholder="{{ __('messages.front.enter_your_email') }}" value="" required>
+                            <!-- Placeholder for error messages -->
+                            <div id="email-error" class="text-danger" style="display: none;"></div>
+
+                            <div class="subscribe-btn text-sm-end text-center mt-sm-0 mt-4">
+                                <button type="submit" class="btn btn-primary h-100 subscribeBtn">{{ __('messages.subscribe') }}</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                    <script>
+                        $(document).ready(function () {
+                            $('#addEmail').on('submit', function (e) {
+                                e.preventDefault(); // Prevent traditional form submission
+
+                                var form = this;
+                                var email = form.querySelector('#email').value;
+                                alert(email)
+                                var errorDiv = $('#email-error');
+                                errorDiv.hide().html(''); // Clear previous error messages
+
+                                // Front-end Validation checks
+                                var invalidChars = /[!#\$%\^&\*\(\)]/;
+                                if (invalidChars.test(email)) {
+                                    errorDiv.show().html('Email contains invalid characters.');
+                                    return false;
+                                }
+
+                                if (email.match(/\.com\..+/)) {
+                                    errorDiv.show().html('Email contains duplicate domain extensions.');
+                                    return false;
+                                }
+
+                                if (email.length > 25) {
+                                    errorDiv.show().html('Email is too long. Please use less than 25 characters.');
+                                    return false;
+                                }
+
+                                // If all checks pass, send the AJAX request
+                                $.ajax({
+                                    url: "{{ route('email.sub') }}",  // Route defined in AJAX request
+                                    type: "POST",
+                                    data: {
+                                        _token: $('input[name="_token"]').val(),
+                                        email: email
+                                    },
+                                    success: function (response) {
+                                        if (response.success) {
+                                            alert('Successfully subscribed!');
+                                            $('#email').val(''); // Clear the email field upon success
+                                        } else {
+                                            errorDiv.show().html(response.message || 'An error occurred.');
+                                        }
+                                    },
+                                    error: function (xhr, status, error) {
+                                        // Handle server-side validation errors
+                                        var errors = xhr.responseJSON ? xhr.responseJSON.errors : null;
+                                        if (errors && errors.email) {
+                                            errorDiv.show().html(errors.email[0]);  // Display server validation error
+                                        } else {
+                                            // Log the entire response text for debugging
+                                            console.log('Response Text:', xhr.responseText);
+
+                                            // Display a general error message
+                                            errorDiv.show().html('An unexpected error occurred. Please try again.');
+                                        }
+                                    }
+                                });
+                            });
+                        });
                     </script>
+
+
 
 
 

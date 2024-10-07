@@ -25,9 +25,18 @@ class EmailSubscriptionController extends AppBaseController
      */
     public function store(CreateEmailSubscriptionRequest $request)
     {
-        EmailSubscription::create($request->all());
-        return $this->sendSuccess(__('messages.placeholder.subscribed_successfully'));
+        // Laravel's server-side validation rules
+        $validatedData = $request->validate([
+            'email' => 'required|email|max:25|unique:email_subscriptions,email',
+        ]);
+
+        // Create the email subscription if validation passes
+        EmailSubscription::create($validatedData);
+
+        // Return success response as JSON
+        return response()->json(['success' => true, 'message' => __('messages.placeholder.subscribed_successfully')]);
     }
+
 
     /**
      * @return mixed
