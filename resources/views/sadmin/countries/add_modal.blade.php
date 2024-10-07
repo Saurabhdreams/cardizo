@@ -13,7 +13,7 @@
                 </div>
                 <div class="mb-5">
                     {{ Form::label('name',__('messages.common.name').':', ['class' => 'form-label required']) }}
-                    {{ Form::text('name', null, ['class' => 'form-control', 'required','placeholder' => __('messages.common.name'),'id' => 'countryName','autofocus']) }}
+                    {{ Form::text('name', null, ['class' => 'form-control', 'required','placeholder' => __('messages.country.short_name'),'id' => 'countryName','autofocus']) }}
                 </div>
                 <div class="mb-5">
                     {{ Form::label('short_code',__('messages.country.short_code').':', ['class' => 'form-label required']) }}

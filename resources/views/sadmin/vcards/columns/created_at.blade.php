@@ -1,3 +1,3 @@
 <span class="badge bg-secondary me-2">
-    {{ getFormattedDateTime($row->ends_at) }}
+    {{ getFormattedDateTime($row->created_at)  }}
 </span>

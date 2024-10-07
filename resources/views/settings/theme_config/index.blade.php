@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    {{ __('messages.settings') }}
+    {{ __('messages.theme_configuration') }}
 @endsection
 @section('content')
     <div class="container-fluid">

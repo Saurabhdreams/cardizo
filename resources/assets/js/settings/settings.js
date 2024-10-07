@@ -111,6 +111,7 @@ listenSubmit("#createSetting", function () {
 });
 
 listenChange("#mobileValidation", function (e) {
+
     e.preventDefault();
     $.ajax({
         url: route("update.mobile.validation"),

@@ -35,7 +35,7 @@
                                 </div>
                             </div>
                             <div class="row mb-6">
-                                <label class="col-lg-4 form-label">{{ __('messages.user.full_name') . ':' }}</label>
+                                <label class="col-lg-4 form-label required">{{ __('messages.user.full_name') . ':' }}</label>
                                 <div class="col-lg-8">
                                    <div class="row">
                                         <div class="col-lg-6 fv-row fv-plugins-icon-container">

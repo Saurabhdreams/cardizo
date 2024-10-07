@@ -37,42 +37,28 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        // Retrieve the user based on the provided email
         $user = User::whereEmail($request->email)->first();
 
-        // Check if the user exists
-        if (!empty($user)) {
-            // Check if the user's email is verified
+        if (! empty($user)) {
             if ($user['email_verified_at'] != null) {
-
-                // Check if the user is active
                 if ($user['is_active'] == User::IS_ACTIVE) {
-                    // Attempt to authenticate the user with remember option
-                    if (Auth::attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
+                    Auth::login($user, $request->get('remember'));
+                    $request->authenticate();
 
-                        $request->session()->regenerate(); // Regenerate the session to prevent session fixation attacks
+                    $request->session()->regenerate();
 
-                        return redirect()->intended(getDashboardURL());
-                    } else {
-                        // Authentication failed
-                        throw ValidationException::withMessages([
-                            'email' => __('auth.failed'),
-                        ]);
-                    }
+                    return redirect()->intended(getDashboardURL());
                 } else {
-                    // User account is inactive
                     throw ValidationException::withMessages([
                         'email' => __('auth.account_deactivate'),
                     ]);
                 }
             } else {
-                // User's email is not verified
                 throw ValidationException::withMessages([
                     'email' => __('auth.email_verify'),
                 ]);
             }
         } else {
-            // User does not exist
             throw ValidationException::withMessages([
                 'email' => __('auth.failed'),
             ]);

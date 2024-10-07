@@ -62,7 +62,7 @@
                                 </div>
                                 <div class="mb-sm-7 mb-4 form-check element ms-5 d-flex justify-content-between align-items-center">
                                     <div>
-                                        <input type="checkbox" class="form-check-input" id="remember" name="remember">
+                                        <input type="checkbox" class="form-check-input" id="remember_me" name="remember" value="1">
                                         <label class="form-check-label" for="remember_me">{{ __('messages.common.remember_me') }}</label>
                                     </div>
 
