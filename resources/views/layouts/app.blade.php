@@ -91,6 +91,7 @@
                         @include('layouts.header')
                     </div>
                     <div class='content d-flex flex-column flex-column-fluid pt-7 overflow-scroll'>
+
                         @yield('header_toolbar')
                         <div class='d-flex flex-wrap flex-column-fluid'>
                             @yield('content')

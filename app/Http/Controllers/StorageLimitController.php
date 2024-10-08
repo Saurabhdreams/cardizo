@@ -29,10 +29,12 @@ class StorageLimitController extends AppBaseController
     }
     public function storageChart() : JsonResponse
     {
+
          $planStorage = getCurrentSubscription()->plan->storage_limit;
          $userLimit =totalStorage();
          $storage = $userLimit * 100 / $planStorage;
-         // $labels = ['Used storage', 'Unused Storage'];
+         // $labels = ['Used storage', 'Unused Storage'];d
+
          $labels = [
                   Lang::get('messages.used_storage'),
                   Lang::get('messages.unused_storage'),
@@ -43,6 +45,7 @@ class StorageLimitController extends AppBaseController
              'labels' => $labels,
              'data' => [$storage, 100 - $storage],
          ];
+
          return $this->sendResponse($data, 'storage chart data fetch successfully.');
 
     }

@@ -30,4 +30,16 @@ class UpdateUserProfileRequest extends FormRequest
 
         return $rules;
     }
+
+    public function messages(): array
+{
+    return [
+        'contact.required' => 'The Contact field is required.',
+        'contact.numeric' => 'The Contact must contain only numbers.',
+        'contact.digits' => 'The Contact must be exactly 10 digits.',
+        'profile.mimes' => 'The Profile must be an image of type jpg, bmp, png, apng, avif, or jpeg.',
+        'email.unique' => 'This Email address is already taken.',
+    ];
+}
+
 }

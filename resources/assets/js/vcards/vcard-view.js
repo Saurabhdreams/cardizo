@@ -403,6 +403,7 @@ listenSubmit("#passwordForm", function (event) {
 listenSubmit("#enquiryForm", function (event) {
     event.preventDefault();
     $(".contact-btn").prop("disabled", true);
+    console.log(enquiryUrl);
     $.ajax({
         url: enquiryUrl,
         type: "POST",

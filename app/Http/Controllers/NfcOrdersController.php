@@ -150,7 +150,7 @@ class NfcOrdersController extends AppBaseController
                 $userId = $nfcOrder->user_id;
                 $email = $input['email'];
                 Session::put('orderid', $orderId);
-                
+
                 $repo = App::make(NfcOrderRepository::class);
 
                 $result = $repo->userCreateRazorPaySession($input, $nfc, $currency);

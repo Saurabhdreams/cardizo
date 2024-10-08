@@ -19,6 +19,11 @@
                                 <i class="bi bi-eye-slash-fill"></i>
                             </span>
                     </div>
+                @if ($errors->has('current_password'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('current_password') }}
+                    </div>
+                @endif
                 </div>
                 <div class="mb-5">
                     {{ Form::label('new_password',__('messages.user.new_password').':', ['class' => 'form-label required']) }}
@@ -28,6 +33,11 @@
                                 <i class="bi bi-eye-slash-fill"></i>
                             </span>
                     </div>
+                @if ($errors->has('new_password'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('new_password') }}
+                    </div>
+                @endif
                 </div>
                 <div>
                     {{ Form::label('confirm_password',__('messages.user.confirm_password').':', ['class' => 'form-label required']) }}
@@ -37,6 +47,11 @@
                                 <i class="bi bi-eye-slash-fill"></i>
                             </span>
                     </div>
+                @if ($errors->has('confirm_password'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('confirm_password') }}
+                    </div>
+                @endif
                 </div>
             </div>
             <div class="modal-footer pt-0">

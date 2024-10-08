@@ -715,7 +715,7 @@
                                         <div id="enquiryError" class="alert alert-danger d-none"></div>
                                         <div class="mb-3">
                                             <input type="text" name="name" class="form-control" id="name"
-                                                placeholder="{{ __('messages.form.your_name') }}" pattern="[A-Za-z]+"
+                                                placeholder="{{ __('messages.form.your_name') }}" pattern="[A-Za-z\s]+"
        title="{{ __('The :attribute must contain only alphabetical characters.', ['attribute' => __('messages.form.your_name')]) }}">
                                         </div>
                                         <div class="mb-3">
@@ -724,7 +724,7 @@
                                         </div>
                                         <div class="mb-3">
                                             <input type="tel" name="phone" class="form-control" id="phone"
-                                                placeholder="{{ __('messages.form.phone') }}"  pattern="[0-9+]*"
+                                                placeholder="{{ __('messages.form.phone') }}"  pattern="[0-9+]*" minlength="10" maxlength="15"
        title="{{ __('The :attribute must contain only numbers.', ['attribute' => __('messages.form.phone')]) }}">
                                         </div>
                                         <div class="mb-3">

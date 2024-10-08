@@ -23,6 +23,7 @@ class CreateEnquiryRequest extends FormRequest
     public function rules(): array
     {
         $dynamicRules = Enquiry::$rules;
+        $dynamicRules['email'] = 'required|email|max:25';
         if (!empty($this->vcard->privacy_policy) || !empty($this->vcard->term_condition)) {
             $dynamicRules['terms_condition'] = 'required';
         }
@@ -32,8 +33,10 @@ class CreateEnquiryRequest extends FormRequest
     public function messages(): array
     {
         return [
-
-            'terms_condition' =>  (__('messages.placeholder.agree_term')),
+            'email.required' => 'The email field is required.',
+            'email.email' => 'Please provide a valid email address.',
+            'email.max' => 'The email may not be greater than 25 characters.',
+            'terms_condition.required' => __('messages.placeholder.agree_term'),
         ];
     }
 }

@@ -33,7 +33,7 @@ class EnquiryController extends AppBaseController
         $input['vcard_name'] = $vcard->name;
         Enquiry::create($input);
         $email = empty($vcard->email) ? $vcard->user->email : $vcard->email;
-       
+
         if (!empty($email)) {
 
             Mail::to($email)->send(new ContactUsMail($input, $email));

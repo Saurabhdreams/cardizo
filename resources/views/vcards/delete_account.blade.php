@@ -1,22 +1,33 @@
 @extends('layouts.app')
 @section('title')
-    {{ __('messages.dashboard') }}
+    {{ __('messages.delete_account') }}
 @endsection
 @section('content')
 <div class="container-fluid">
     <div class="col-12">
         @if(Session::has('success'))
-            <p class="alert alert-success">{{ getSuccessMessage(Request::query('part')).Session::get('success') }}</p>
+        <p class="alert alert-success">{{ getSuccessMessage(Request::query('part')).Session::get('success') }}</p>
         @endif
         @if(Session::has('error'))
-            <p class="alert alert-danger">{{ getSuccessMessage(Request::query('part')).Session::get('error') }}</p>
+        <p class="alert alert-danger">{{ getSuccessMessage(Request::query('part')).Session::get('error') }}</p>
         @endif
         @include('layouts.errors')
         @include('flash::message')
     </div>
     <div class="card h-100">
+        <div class="position-absolute top-0 end-0 p-3">
+            <a href="#" class="btn btn-primary" onclick="goBack(); return false;">
+                {{ __('messages.common.back') }}
+            </a>
+        </div>
+        <script>
+            function goBack() {
+                window.history.back();
+            }
+            </script>
         <div class="d-flex align-items-center justify-content-center h-100">
         <div class="card-body d-flex flex-column position-relative align-items-center">
+
             <div class="ps-sm-3 pt-lg-auto pt-0 w-100 h-100 overflow-auto text-center" id="main">
                     <div class="text-center">
                         <h1 class="confirmation-text p-5">{{ __('messages.common.user_delete') }}</h1>
