@@ -102,14 +102,14 @@
                                 </a>
                             </li>
                         @endif
-                        <li>
+                        {{-- <li>
                             <a class="dropdown-item text-gray-900" id="changeLanguage" href="javascript:void(0)">
                                <span class="dropdown-icon me-4 text-gray-600">
                                    <i class="fa-solid fa-globe"></i>
                                </span>
                                 {{ __('messages.user.change_language') }}
                             </a>
-                        </li>
+                        </li> --}}
                         @role(\App\Models\Role::ROLE_ADMIN)
                         <li>
                             <a class="dropdown-item text-gray-900" href="{{ route('delete-account') }}">

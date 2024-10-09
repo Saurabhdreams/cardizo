@@ -30,7 +30,7 @@ class UpdateChangePasswordRequest extends FormRequest
                     }
                 },
             ],
-            'new_password' => 'required|same:confirm_password|min:8|max:18|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/',
+            'new_password' => 'required|same:confirm_password|min:8|max:18|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/|different:current_password',
             'confirm_password' => 'required|min:8',
         ];
     }

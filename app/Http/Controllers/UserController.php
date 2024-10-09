@@ -223,6 +223,9 @@ class UserController extends AppBaseController
             if (! Hash::check($input['current_password'], $user->password)) {
                 return $this->sendError(__('messages.flash.current_invalid'));
             }
+            if ($input['new_password'] === $input['current_password']) {
+                return $this->sendError(__('messages.flash.new_password_same_as_current'));
+            }
             $input['password'] = Hash::make($input['new_password']);
             $user->update($input);
 
