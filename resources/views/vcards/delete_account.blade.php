@@ -16,7 +16,7 @@
     </div>
     <div class="card h-100">
         <div class="position-absolute top-0 end-0 p-3">
-            <a href="#" class="btn btn-primary" onclick="goBack(); return false;">
+            <a href="#" class="btn btn-outline-primary float-end" onclick="goBack(); return false;">
                 {{ __('messages.common.back') }}
             </a>
         </div>

@@ -38,6 +38,7 @@ class VcardBlogController extends AppBaseController
      */
     public function store(CreateVcardBlogRequest $request)
     {
+
         $input = $request->all();
 
         $blog = $this->vcardBlogRepo->store($input);

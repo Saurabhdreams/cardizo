@@ -46,6 +46,7 @@ class ECardsController extends Controller
 
     public function downloadEcard(CreateEcardRequest $request): RedirectResponse
     {
+
         $input = $request->all();
 
         $path = asset('uploads/ecard');
@@ -136,6 +137,7 @@ class ECardsController extends Controller
 
     public function create($ecard): \Illuminate\View\View
     {
+
         $vcards = Vcard::whereTenantId(getLogInTenantId())->where('status', Vcard::ACTIVE)->pluck('name', 'id')->toArray();
 
         return view('virtual-backgrounds.create', compact('vcards', 'ecard'));

@@ -177,7 +177,7 @@ listen("click", "#rozorpayEnable", function () {
 listen("submit", "#UserCredentialsSettings", function () {
     if ($("#stripeEnable").prop("checked")) {
         if ($("#stripeKey").val().trim().length === 0) {
-            displayErrorMessage(Lang.get("js.stripe_secret"));
+            displayErrorMessage(Lang.get("js.stripe_key"));
             return false;
         } else if ($("#stripeSecret").val().trim().length === 0) {
             displayErrorMessage(Lang.get("js.stripe_secret"));

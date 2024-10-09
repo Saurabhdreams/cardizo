@@ -26,12 +26,12 @@ class IframeController extends AppBaseController
 
         $iframe = $this->iframeRepo->store($input);
 
-        return $this->sendResponse($iframe, __('iframe store successfully'));
+        return $this->sendResponse($iframe, __('Iframe store successfully'));
     }
 
     public function edit(Iframe $iframe): JsonResponse
     {
-        return $this->sendResponse($iframe, 'iframe successfully retrieved.');
+        return $this->sendResponse($iframe, 'Iframes successfully retrieved.');
     }
 
 
@@ -42,7 +42,7 @@ class IframeController extends AppBaseController
 
         $iframe = $this->iframeRepo->update($input, $iframe->id);
 
-        return $this->sendResponse($iframe, __('iframe update successfully'));
+        return $this->sendResponse($iframe, __('Iframe update successfully'));
     }
 
 

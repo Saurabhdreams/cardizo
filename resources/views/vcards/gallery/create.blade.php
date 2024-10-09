@@ -12,14 +12,16 @@
                     <div class="col-sm-12 mb-5">
                         {{ Form::hidden('vcard_id', $vcard->id) }}
                     </div>
+
+
                     <div class="col-sm-12">
                         <div class="mb-3">
-                            <label
-                                class="form-label required fs-6 text-gray-700">{{ __('messages.gallery.type').':' }}</label>
+                            <label class="form-label required fs-6 text-gray-700">{{ __('messages.gallery.type').':' }}</label>
                         </div>
                         {{ Form::select('type', \App\Models\Gallery::TYPE,null,
-                            ['class' => 'form-control form-select form-select-solid fw-bold', 'required','data-dropdown-parent' => '#addGalleryModal','placeholder'=>'Select Type', 'data-control' => 'select2','id'=>'typeId']) }}
+                            ['class' => 'form-control form-select form-select-solid fw-bold','data-dropdown-parent' => '#addGalleryModal','placeholder'=>'Select Type', 'data-control' => 'select2','id'=>'typeId']) }}
                     </div>
+
                     <div class="col-sm-12 mb-5 mt-3 image_link">
 
                         <div class="mb-3" io-image-input="true">

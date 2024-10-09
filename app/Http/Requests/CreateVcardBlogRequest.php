@@ -28,6 +28,9 @@ class CreateVcardBlogRequest extends FormRequest
         return [
             'title.string' => 'The name field is required.',
             'description.string' => 'The description field is required.',
+            'blog_icon.required' => 'The Blog icon field is required.',
+            'blog_icon.mimes' => 'The Blog icon must be a file of type: jpg, jpeg, png.',
         ];
     }
 }
+

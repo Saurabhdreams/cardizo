@@ -80,7 +80,7 @@ class VcardBlog extends Model implements HasMedia
     {
         return $this->belongsTo(Vcard::class, 'vcard_id');
     }
-    
+
     public function dynamicVcard()
     {
         return $this->hasOne(DynamicVcard::class, 'vcard_id');

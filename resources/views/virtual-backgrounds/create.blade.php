@@ -19,7 +19,7 @@
                     <div class="row">
                         <div class="col-md-6 mt-4">
                             <label class="form-label required">{{ __('messages.vcard.vcard_name') }}</label>
-                            <select id="e-vcard-id" name="vcard_id" required>
+                            <select id="e-vcard-id" name="vcard_id">
                                 <option value="">{{ __('messages.vcard.selec') }}</option>
                                 @foreach ($vcards as $id => $vcard)
                                     <option value="{{ $id }}" @selected(old('vcard_id'))>{{ $vcard }}</option>
@@ -90,9 +90,9 @@
                                     'required',
                                     'placeholder' => __('messages.form.phone'),
                                     'id' => 'phoneNumber',
-                                    'pattern' => '^\d{10}$', 
-                                    'title' => __('The :attribute must be a 10-digit number.', ['attribute' => __('messages.user.phone')]),
-                                    'onkeyup' => 'if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,"")' 
+                                    'pattern' => '^\d{10}$',
+                                    'title' => __('The Phone Number must be a 10-digit number.', ['attribute' => __('messages.user.phone')]),
+                                    'onkeyup' => 'if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,"")'
                                 ]) }}
                                 {{ Form::hidden('region_code', null, ['id' => 'prefix_code']) }}
                             </div>

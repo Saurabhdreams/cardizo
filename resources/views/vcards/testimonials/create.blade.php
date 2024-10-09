@@ -18,7 +18,7 @@
                             'required' => 'required',
                             'pattern' => '[A-Za-z\s]+', // Updated pattern to allow spaces as well
                             'title' => __('The :attribute must contain only alphabetical characters.', ['attribute' => __('messages.form.testimonial')]) // Corrected syntax
-                        ]) }}    
+                        ]) }}
                     </div>
                     <div class="col-sm-12 mb-5">
                         {{ Form::label('description', __('messages.common.description').':', ['class' => 'form-label required fs-6 fw-bolder text-gray-700 mb-3']) }}

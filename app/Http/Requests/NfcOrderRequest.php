@@ -22,15 +22,23 @@ class NfcOrderRequest extends FormRequest
      */
     public function rules(): array
     {
-        return NfcOrders::$rules;
+        return array_merge(NfcOrders::$rules, [
+            // 'payment_type' => 'required',
+            'logo' => 'required',
+            'phone' => 'required|digits_between:10,15',
+            'vcard_id' => 'required'
+        ]);
     }
 
     public function messages(): array
     {
         return [
-            'card_type.required' => (__('messages.nfc.select_card')),
-            'vcard_id.required' => (__('messages.nfc.required_vcard')),
-            'vcard_id.integer' => (__('messages.nfc.required_vcard')),
+            // 'payment_type.required' => __('payment method is required'),
+            'logo.required' => __('The Logo field is required'),
+            'vcard_id.required' => __('The vcard field is required'),
+            'phone.required' => __('The Phone field is required'),
+            'phone.digits_between' => __('The Phone number must be between 10 and 15 digits.'),
+
         ];
     }
 }

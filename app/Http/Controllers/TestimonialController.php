@@ -25,6 +25,7 @@ class TestimonialController extends AppBaseController
 
     public function store(CreateTestimonialRequest $request): JsonResponse
     {
+
         $input = $request->all();
 
         $testimonial = $this->testimonialRepo->store($input);

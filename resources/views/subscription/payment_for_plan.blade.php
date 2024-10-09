@@ -189,9 +189,7 @@
                                             return trans('messages.' . $value);
                                         });
                                     @endphp
-                                    <div class="plan-payment-type">
-                                        {{ Form::select('payment_type', $translatedPaymentTypes, null, ['class' => 'form-select', 'required', 'id' => 'paymentType', 'data-control' => 'select2', 'placeholder' => __('messages.select_payment_type')]) }}
-                                    </div>
+
                                 </div>
                                 <div class="mt-5 switch-plan-btn  proceed-to-payment  d-none">
                                     <button type="button" class="btn btn-primary rounded-pill mx-auto d-block makePayment"

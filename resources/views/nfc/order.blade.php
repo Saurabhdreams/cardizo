@@ -143,7 +143,7 @@
                                                 class="form-label required">{{ __('messages.setting.shipping_address') }}</label>
                                             <input type="text" class="form-control" name="address"
                                                 id="e-card-location" required value="{{ old('address') }}"
-                                                placeholder="{{ __('messages.nfc.enter_address') }}">
+                                                placeholder="{{ __('messages.nfc.enter_shipping_address') }}">
                                         </div>
                                         @php
                                             $translatedPaymentTypes = collect($paymentTypes)->map(function ($value) {
@@ -152,7 +152,7 @@
                                         @endphp
                                         <div class="col-md-6 mt-4">
                                             <label
-                                            class="form-label required">{{ __('messages.select_payment_type') }}</label>
+                                            class="form-label">{{ __('messages.select_payment_type') }}</label>
                                             {{ Form::select('payment_method', $translatedPaymentTypes, null, ['class' => 'form-select paymentType', 'required', 'id' => 'paymentType', 'data-control' => 'select2', 'placeholder' => __('messages.select_payment_type')]) }}
                                         </div>
                                     </div>

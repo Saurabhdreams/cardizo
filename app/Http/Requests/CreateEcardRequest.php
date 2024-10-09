@@ -20,9 +20,15 @@ class CreateEcardRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'vcard_id' => 'required',
             'first_name' => 'required|max:10',
             'last_name' => 'required|max:10',
-            'email' => 'required|email:filter',
+            'email' =>
+                'required',
+                'string',
+                'email',
+                'min:8',
+                'max:30',
             'occupation' => 'required|max:20',
             'phone' => 'required|numeric',
             'location' => 'required',
@@ -34,10 +40,14 @@ class CreateEcardRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      */
-    // public function messages(): array
-    // {
-    //     return [
-    //         'ecard-logo.dimensions' => 'E Card logo should have 150px width & hight.',
-    //     ];
-    // }
+    public function messages(): array
+    {
+        return [
+            'vcard_id.required' => 'Please fill the Vcard Name',
+            'email.email' => 'Please enter a valid email address.',
+            'email.min' => 'Email must be at least 8 characters long.',
+            'email.max' => 'Email cannot be longer than 30 characters.',
+            'ecard-logo.dimensions' => 'E Card logo should have 150px width & hight.',
+        ];
+    }
 }

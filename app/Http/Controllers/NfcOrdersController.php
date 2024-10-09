@@ -73,6 +73,7 @@ class NfcOrdersController extends AppBaseController
 
     public function store(NfcOrderRequest $request)
     {
+
     try {
         DB::beginTransaction();
 

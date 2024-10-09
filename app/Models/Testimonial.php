@@ -71,6 +71,7 @@ class Testimonial extends Model implements HasMedia
      * @var array
      */
     public static $rules = [
+
         'name' => 'string|min:2',
         'description' => 'string|max:250',
         'image' => 'required|mimes:jpg,png,JPEG',

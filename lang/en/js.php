@@ -80,7 +80,7 @@ return [
     'plan_expire_notification' => 'Plan Expire Notification field is required.',
     'address_field' => 'Address Field field is required.',
     'stripe_secret' => 'Stripe secret field is required.',
-    'paystack_key' => 'Paystack key',
+    'paystack_key' => 'Paystack Key field is required.',
     'paystack_secret' => 'Paystack Secret',
     'razorpay_key' => 'Rozorpay key field is required.',
     'razorpay_secret' => 'Rozorpay Secret field is required.',

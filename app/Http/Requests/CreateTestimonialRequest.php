@@ -28,6 +28,7 @@ class CreateTestimonialRequest extends FormRequest
         return [
             'name.string' => (__('messages.flash.name_is_required')),
             'description.string' => (__('messages.flash.decription_is_required')),
+            'image.required' => (__('The Image field is required')),
         ];
     }
 }

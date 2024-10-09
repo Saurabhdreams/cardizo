@@ -12,7 +12,7 @@
                     <div class="col-sm-12 mb-5">
                         {{ Form::hidden('vcard_id', $vcard->id) }}
                         {{ Form::label('title',__('messages.front_cms.title').(':'), ['class' => 'form-label required fs-6 fw-bolder text-gray-700 mb-3']) }}
-                        {{ Form::text('title', null, ['class' => 'form-control','required', 'placeholder' => __('messages.form.blog'), 'maxlength'=>'100']) }}
+                        {{ Form::text('title', null, ['class' => 'form-control', 'placeholder' => __('messages.form.blog'), 'maxlength'=>'100']) }}
                     </div>
                     <div class="col-sm-12 mb-5">
                         {{ Form::label('blogDescription', __('messages.common.description').':', ['class' => 'form-label required fs-6 fw-bolder text-gray-700 mb-3']) }}
@@ -20,8 +20,7 @@
                     </div>
                     <div class="col-sm-12 mb-5">
                         <div class="mb-3" io-image-input="true">
-                            <label for="blogImgId"
-                                   class="form-label required">{{ __('messages.vcard.blog_icon').':' }}</label>
+                            <label for="blogImgId" class="form-label required">{{ __('messages.vcard.blog_icon').':' }}</label>
                             <div class="d-block">
                                 <div class="image-picker">
                                     <div class="image previewImage" id="blogPreview"
@@ -31,13 +30,21 @@
                                         <label>
                                             <i class="fa-solid fa-pen" id="profileImageIcon"></i>
                                             <input type="file" id="blogIcon" name="blog_icon"
-                                                   class="image-upload file-validation d-none" accept="image/*"/> </label>
+                                                   class="image-upload file-validation d-none" accept="image/*"/>
+                                        </label>
                                     </span>
                                 </div>
                                 <div class="form-text">{{__('messages.allowed_file_types')}}</div>
+                                <!-- Display validation error for blog_icon -->
+                                @if($errors->has('blog_icon'))
+                                    <div class="text-danger">
+                                        {{ $errors->first('blog_icon') }}
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>
+
                     <div class="d-flex">
                         {{ Form::button(__('messages.common.save'), ['type'=>'submit','class' => 'btn btn-primary me-3','id'=>'blogSave']) }}
                         <button type="button" class="btn btn-secondary me-2"
