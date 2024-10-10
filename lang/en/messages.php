@@ -132,6 +132,7 @@ return [
         'user_status' => 'User status updated successfully',
         'user_update' => 'User updated successfully.',
         'user_profile' => 'User profile updated successfully.',
+        'avatar_required' => 'Avtar should not be empty.',
         'current_invalid' => 'Current password is invalid.',
         'password_update' => 'Password updated successfully.',
         'language_update' => 'Language updated successfully.',

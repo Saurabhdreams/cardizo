@@ -201,13 +201,18 @@ class UserController extends AppBaseController
 
     public function updateProfile(UpdateUserProfileRequest $request): RedirectResponse
     {
-        $this->userRepo->updateProfile($request->all());
-        $verifiedUser = EmailVerification::where('user_id', getLogInUserId())->first();
+        if (!$request->hasFile('profile')){
+            Flash::error(__('messages.flash.avatar_required'));
+        }
+        else{
+            $this->userRepo->updateProfile($request->all());
+            $verifiedUser = EmailVerification::where('user_id', getLogInUserId())->first();
 
-        if ($verifiedUser) {
-            Flash::success(__('messages.placeholder.email_verification'));
-        } else {
-            Flash::success(__('messages.flash.user_profile'));
+            if ($verifiedUser) {
+                Flash::success(__('messages.placeholder.email_verification'));
+            } else {
+                Flash::success(__('messages.flash.user_profile'));
+            }
         }
 
         return redirect(route('profile.setting'));
