@@ -201,22 +201,33 @@ class UserController extends AppBaseController
 
     public function updateProfile(UpdateUserProfileRequest $request): RedirectResponse
     {
-        if (!$request->hasFile('profile')){
+        $user = auth()->user();
+
+        if (!$request->hasFile('profile') && empty($user->profile_image)) {
             Flash::error(__('messages.flash.avatar_required'));
         }
-        else{
-            $this->userRepo->updateProfile($request->all());
-            $verifiedUser = EmailVerification::where('user_id', getLogInUserId())->first();
 
-            if ($verifiedUser) {
-                Flash::success(__('messages.placeholder.email_verification'));
-            } else {
-                Flash::success(__('messages.flash.user_profile'));
-            }
+        elseif ($request->hasFile('profile')) {
+            $avatarPath = $request->file('profile')->store('avatars', 'public');
+
+            $this->userRepo->updateProfile(array_merge($request->except('profile'), [
+                'profile_image' => $avatarPath
+            ]));
+
+            Flash::success(__('messages.flash.avatar_updated'));
+        }
+        else {
+            $this->userRepo->updateProfile($request->except('profile'));
         }
 
+        $verifiedUser = EmailVerification::where('user_id', getLogInUserId())->first();
+        if ($verifiedUser) {
+            Flash::success(__('messages.placeholder.user_profile_updated'));
+        }
         return redirect(route('profile.setting'));
     }
+
+
 
     public function changePassword(UpdateChangePasswordRequest $request): JsonResponse
     {
