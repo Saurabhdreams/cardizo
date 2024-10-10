@@ -27,9 +27,9 @@
     @if (!empty(getAppLogo()))
         <meta property="og:image" content="{{ getAppLogo() }}" />
     @endif
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        {{-- crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
     <link rel="icon" type="image/png" href="/images/vcard-logo.png" />
 
     {{-- bootstrap --}}
